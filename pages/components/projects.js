@@ -123,7 +123,7 @@ function MyProject(props, projectRef) {
                     </div>
                     <p className=" invisible md:visible m-auto"><FaAnglesRight/></p>
 
-                    <p className=" invisible md:visible m-auto md:ml-10 lg:ml-0"><FaAnglesLeft/></p>
+                    <p className=" invisible md:visible m-auto md:ml-10 lg:ml-60"><FaAnglesLeft/></p>
                     <div className="border-t my-10 md:mr-10 border-gray-200 text-center min-w-fit md:h-auto shadow-lg p-10 rounded-xl mx-auto md:my-auto snap-center snap-always dark:border-white dark:shadow-gray-500 hover:shadow-neutral-200 dark:hover:shadow-gray-400">
 
                         <h3 className="text-2xl font-salma text-slate-600 md:text-xl lg:text-2xl dark:text-neutral-200">Guess Password Game</h3>
