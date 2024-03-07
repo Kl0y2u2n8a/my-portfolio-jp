@@ -55,7 +55,7 @@ export default function Home() {
         
 
         <nav className="sticky top-0 z-50 py-5 mb-12 flex justify-between font-mochy">
-          <h1 className="md:text-2xl font-burtons text-blue-900 hover:text-blue-500 dark:text-white dark:hover:text-neutral-300">
+        <h1 className="text-xl font-burtons text-blue-900 hover:text-blue-500 dark:text-white dark:hover:text-neutral-300">
             <a href="/">kevinliangweb</a>
           </h1>
           <ul className="flex items-center">
