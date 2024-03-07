@@ -1,5 +1,8 @@
+const plugin = require('tailwindcss');
+
 /** @type {import('tailwindcss').Config} */
 module.exports = {
+  darkMode:"class",
   content: [
     "./pages/**/*.{js,ts,jsx,tsx,mdx}",
     "./components/**/*.{js,ts,jsx,tsx,mdx}",
@@ -7,12 +10,31 @@ module.exports = {
   ],
   theme: {
     extend: {
-      backgroundImage: {
-        "gradient-radial": "radial-gradient(var(--tw-gradient-stops))",
-        "gradient-conic":
-          "conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))",
+      fontFamily: {
+        burtons : "burtons",  
+        rony9: "rony9",
+        newWalt : "newWalt",
+        salma : "salma",
+        warriot : "warriot",
+        mochy : "mochy",
+        mplus: "mplus",
       },
     },
   },
-  plugins: [],
+  plugins: [ 
+    function({addUtilities}){
+      const newUtilities = {
+        ".no-scrollbar::-webkit-scrollbar":{
+          display: "none",
+        },
+        ".no-scrollbar":{
+          "-ms-overflow-style": "none",
+          "scrollbar-width": "none",
+        },
+      };
+
+      addUtilities(newUtilities);
+    }
+  ],
 };
+

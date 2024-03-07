@@ -1,118 +1,181 @@
-import Image from "next/image";
-import { Inter } from "next/font/google";
+import Head from "next/head";
+import { BsFillMoonStarsFill } from 'react-icons/bs';
+import { AiFillLinkedin, AiFillGithub } from 'react-icons/ai';
+import { FaGripLinesVertical } from "react-icons/fa6";
+import Image from 'next/image';
+import my from '../public/my.jpg';
+import { useState, useRef } from 'react';
+import WorkExperience from "./components/workexp";
+import MySkills from "./components/skills/skills";
+import MyProject from "./components/projects";
 
-const inter = Inter({ subsets: ["latin"] });
+
 
 export default function Home() {
+  // for dark mode
+  const [darkMode, setDarkMode] = useState(false);
+  // for dropdown
+  // const [isOpen, setIsOpen] = useState(false);
+
+  const skillsRef = useRef();
+  const workRef = useRef();
+  const projectRef = useRef();
+
+  // Scroll handler
+  function handleClick(div) {
+    switch (div) {
+      case "top":
+        window.scrollTo({ top: 0, behavior: "smooth" });
+        break;
+      case "skills":
+        skillsRef.current?.scrollIntoView({ behavior: 'smooth' });
+        break;
+      case "workexp":
+        workRef.current?.scrollIntoView({ behavior: "smooth" });
+        break;
+      case "projects":
+        projectRef.current?.scrollIntoView({ behavior: "smooth" });
+        break;
+    }
+  };
+
+
   return (
-    <main
-      className={`flex min-h-screen flex-col items-center justify-between p-24 ${inter.className}`}
-    >
-      <div className="z-10 max-w-5xl w-full items-center justify-between font-mono text-sm lg:flex">
-        <p className="fixed left-0 top-0 flex w-full justify-center border-b border-gray-300 bg-gradient-to-b from-zinc-200 pb-6 pt-8 backdrop-blur-2xl dark:border-neutral-800 dark:bg-zinc-800/30 dark:from-inherit lg:static lg:w-auto lg:rounded-xl lg:border lg:bg-gray-200 lg:p-4 lg:dark:bg-zinc-800/30">
-          Get started by editing&nbsp;
-          <code className="font-mono font-bold">pages/index.js</code>
-        </p>
-        <div className="fixed bottom-0 left-0 flex h-48 w-full items-end justify-center bg-gradient-to-t from-white via-white dark:from-black dark:via-black lg:static lg:h-auto lg:w-auto lg:bg-none">
-          <a
-            className="pointer-events-none flex place-items-center gap-2 p-8 lg:pointer-events-auto lg:p-0"
-            href="https://vercel.com?utm_source=create-next-app&utm_medium=default-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            By{" "}
-            <Image
-              src="/vercel.svg"
-              alt="Vercel Logo"
-              className="dark:invert"
-              width={100}
-              height={24}
-              priority
-            />
-          </a>
-        </div>
-      </div>
 
-      <div className="relative flex place-items-center before:absolute before:h-[300px] before:w-full sm:before:w-[480px] before:-translate-x-1/2 before:rounded-full before:bg-gradient-radial before:from-white before:to-transparent before:blur-2xl before:content-[''] after:absolute after:-z-20 after:h-[180px] after:w-full sm:after:w-[240px] after:translate-x-1/3 after:bg-gradient-conic after:from-sky-200 after:via-blue-200 after:blur-2xl after:content-[''] before:dark:bg-gradient-to-br before:dark:from-transparent before:dark:to-blue-700/10 after:dark:from-sky-900 after:dark:via-[#0141ff]/40 before:lg:h-[360px]">
-        <Image
-          className="relative dark:drop-shadow-[0_0_0.3rem_#ffffff70] dark:invert"
-          src="/next.svg"
-          alt="Next.js Logo"
-          width={180}
-          height={37}
-          priority
-        />
-      </div>
+    <div className={darkMode ? "dark" : ""}>
+      <Head>
+        <title>リャン カイのポートフォリオ</title>
+        <link rel="icon" href="/favicon.ico" />
+      </Head>
 
-      <div className="mb-32 grid text-center lg:max-w-5xl lg:w-full lg:mb-0 lg:grid-cols-4 lg:text-left">
-        <a
-          href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=default-template-tw&utm_campaign=create-next-app"
-          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className={`mb-3 text-2xl font-semibold`}>
-            Docs{" "}
-            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-              -&gt;
-            </span>
-          </h2>
-          <p className={`m-0 max-w-[30ch] text-sm opacity-50`}>
-            Find in-depth information about Next.js features and API.
-          </p>
-        </a>
+      <main className="px-5 min-w-fit min-h-full bg-gradient-to-tr
+      from-sky-300 via-indigo-300 to-blue-100 dark:from-blue-950 dark:via-indigo-950 dark:to-slate-950">
 
-        <a
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=default-template-tw&utm_campaign=create-next-app"
-          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className={`mb-3 text-2xl font-semibold`}>
-            Learn{" "}
-            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-              -&gt;
-            </span>
-          </h2>
-          <p className={`m-0 max-w-[30ch] text-sm opacity-50`}>
-            Learn about Next.js in an interactive course with&nbsp;quizzes!
-          </p>
-        </a>
+        
 
-        <a
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=default-template-tw&utm_campaign=create-next-app"
-          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className={`mb-3 text-2xl font-semibold`}>
-            Templates{" "}
-            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-              -&gt;
-            </span>
-          </h2>
-          <p className={`m-0 max-w-[30ch] text-sm opacity-50`}>
-            Discover and deploy boilerplate example Next.js&nbsp;projects.
-          </p>
-        </a>
+        <nav className="sticky top-0 z-50 py-5 mb-12 flex justify-between font-mochy">
+          <h1 className="md:text-2xl font-burtons text-blue-900 hover:text-blue-500 dark:text-white dark:hover:text-neutral-300">
+            <a href="/">kevinliangweb</a>
+          </h1>
+          <ul className="flex items-center">
+            <li>
+              <button className=" text-[10px] align-middle sm:text-[12px] md:text-sm ml-1 md:ml-2 lg:ml-4 text-blue-900 hover:text-sky-500 dark:text-white  dark:hover:text-neutral-300"
+                onClick={() => handleClick("top")}>
+                紹介
+              </button>
+            </li>
 
-        <a
-          href="https://vercel.com/new?utm_source=create-next-app&utm_medium=default-template-tw&utm_campaign=create-next-app"
-          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className={`mb-3 text-2xl font-semibold`}>
-            Deploy{" "}
-            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-              -&gt;
-            </span>
-          </h2>
-          <p className={`m-0 max-w-[30ch] text-sm opacity-50 text-balance`}>
-            Instantly deploy your Next.js site to a shareable URL with Vercel.
-          </p>
-        </a>
-      </div>
-    </main>
+            <li className="text-sm align-text-bottom md:text-xl ml-0 md:ml-2 lg:ml-4 text-blue-900 dark:text-white">
+              <FaGripLinesVertical />
+            </li>
+
+            <li>
+              <button className="text-[10px] align-middle sm:text-[10px] md:text-sm ml-1 md:ml-2 lg:ml-4 text-blue-900 hover:text-sky-500 dark:text-white  dark:hover:text-neutral-300"
+                onClick={() => handleClick("skills")}>
+                スキール
+              </button>
+            </li>
+
+            <li className="text-sm align-text-bottom md:text-xl ml-0 md:ml-2 lg:ml-4 text-blue-900 dark:text-white">
+              <FaGripLinesVertical />
+            </li>
+
+            <li>
+              <button className="text-[10px] align-middle sm:text-[10px] md:text-sm ml-1 md:ml-2 lg:ml-4 text-blue-900 hover:text-sky-500 dark:text-white dark:hover:text-neutral-300"
+                onClick={() => handleClick("workexp")}>
+                職務経験
+              </button>
+            </li>
+            <li className="text-sm align-text-bottom md:text-xl ml-0 md:ml-2 lg:ml-4 text-blue-900 dark:text-white">
+              <FaGripLinesVertical />
+            </li>
+
+            <li>
+              <button className="text-[10px] align-middle sm:text-[10px] md:text-sm ml-1 md:ml-2 lg:ml-4 text-blue-900 hover:text-sky-500 dark:text-white  dark:hover:text-neutral-300"
+                onClick={() => handleClick("projects")}>
+                プロジェクト
+              </button>
+            </li>
+
+            <li className="text-xs sm:text-lg  align-text-bottom md:text-xl ml-0 md:ml-2 lg:ml-4 text-blue-900 dark:text-white">
+              <FaGripLinesVertical />
+            </li>
+
+            {/* <li>
+              <button  data-ripple-light="true" data-popover-target="menu"
+                className="font-burtons text-l align-middle md:text-2xl ml-1 md:ml-2 lg:ml-4 text-blue-900 hover:text-sky-500 dark:text-white  dark:hover:text-neutral-300"
+                >
+                <FiMenu />
+              </button>
+              
+
+            </li> */}
+
+            <li>
+              <BsFillMoonStarsFill
+                onClick={() => setDarkMode(!darkMode)}
+                className=" cursor-pointer  text-xs sm:text-lg md:text-xl ml-1 md:ml-2 lg:ml-4
+            text-blue-900 hover:text-sky-500 dark:text-white dark:hover:text-neutral-300"
+              />
+            </li>
+
+            {/* <li>
+              <TbLanguageHiragana
+                className=" cursor-pointer text-lg md:text-xl ml-1 md:ml-2 lg:ml-4
+            text-blue-900 hover:text-sky-500 dark:text-white dark:hover:text-neutral-300"
+              />
+            </li> */}
+
+            <li>
+              <button
+                className="text-[10px] border-2 w-16  h-8 sm:w-auto sm:h-auto sm:text-lg border-gray-600 rounded-full bg-gradient-to-r from-blue-500 to-sky-400 px-2 justify-center 
+                            ml-1 sm:ml-2 lg:ml-4 font-burtons text-l text-blue-900 dark:text-white hover:bg-gradient-to-l dark:hover:text-neutral-300"
+              >
+                <a href="https://drive.google.com/file/d/1brZKtkZXY8eL__ZqG7HDDxdz1ndcuYV4/view?usp=sharing" target="_blank" >履歴書</a>
+              </button>
+            </li>
+          </ul>
+        </nav>
+
+
+        <section className="min-h-screen">
+          <div className="text-center p-10 ">
+
+            <div className="relative mx-auto bg-gradient-to-tr from-slate-600 to-blue-400 bg-clip-border border-transparent border-2 hover:border-4 hover:from-indigo-400 hover:to-blue-300 rounded-full w-60 h-60 mb-5 overflow-hidden md:w-72 md:h-72">
+              <Image src={my}/>
+            </div>
+            <h2 className="text-4xl py-2 font-mplus bg-gradient-to-r from-cyan-400 to-indigo-800 bg-clip-text text-transparent md:text-5xl lg:text-6xl lg:py-3">リャン カイ</h2>
+            <h3 className="text-xl py-2 font-mplus md:text-2xl lg:text-3xl bg-gradient-to-r from-purple-500 to-sky-400 bg-clip-text text-transparent ">システムエンジニア</h3>
+            <p className="text-md font-mplus py-3 leading-8 bg-gradient-to-br from-sky-400  to-indigo-700 bg-clip-text text-transparent max-w-xl mx-auto md:text-lg lg:text-xl lg:py-3">
+              初めまして、リャン カイと申します。台湾出身です。<br/>
+              現在は東京エリアのお客様先でヘルプデスクエンジニアと<br/>ディスパッチエンジニアとして働いています。<br/>
+              イリノイ大学シカゴ分校でコンピューターサイエンス学科を<br/>専攻しました。
+              今はフロントエンドに興味を持って、自主でReactやTypescriptなどの知識と技術を勉強しています。<br/>
+              今後はフロントエンドエンジニアとして活躍したいと思います。
+            </p>
+          </div>
+          <div className="text-4xl flex justify-center gap-10 text-gray-600 dark:text-sky-200">
+            <a href="https://github.com/Kl0y2u2n8a" target='_blank' className='hover:text-gray-800 dark:hover:text-sky-100'><AiFillGithub /></a>
+            <a href="https://www.linkedin.com/in/liang-kai0228/" target='_blank' className=' hover:text-gray-800 dark:hover:text-sky-100'><AiFillLinkedin /></a>
+          </div>
+        </section>
+        
+        <MySkills ref={skillsRef} />
+        <WorkExperience ref={workRef} />
+        <MyProject ref={projectRef}/>
+
+        <footer>
+          <div className="font-rony9 pb-8 text-sm border-t-2 p-auto pt-3 text-center font-extrabold text-blue-800 dark:text-sky-400 ">
+            <h1 className="p-1 text-xl">リャン カイ</h1>
+            <p className="p-1">連絡資料</p>
+            <p className="p-1">メール: kevinmailforjapan@gmail.com</p>
+            <p className="p-1">電話番号: 080-2966-3363</p>
+            <p className="p-1">LinkedIn: <a href="https://www.linkedin.com/in/liang-kai0228/" target="_blank">Kai Liang</a></p>
+          </div>
+        </footer>
+
+      </main>
+    </div>
+
   );
 }

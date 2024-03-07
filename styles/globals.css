@@ -2,32 +2,32 @@
 @tailwind components;
 @tailwind utilities;
 
-:root {
-  --foreground-rgb: 0, 0, 0;
-  --background-start-rgb: 214, 219, 220;
-  --background-end-rgb: 255, 255, 255;
+@font-face{
+  font-family: "burtons";
+  src:url('../public/fonts/Burtons.otf');
+}
+@font-face {
+  font-family:"rony9";
+  src:url('../public/fonts/Ronysiswadi9Med.ttf');
+}
+@font-face {
+  font-family: "newWalt";
+  src: url('../public/fonts/NewWaltDisneyFontRegular.ttf');
+}
+@font-face {
+  font-family: "salma";
+  src: url('../public/fonts/SalmaproMediumnarrow-9YlVj.otf');
+}
+@font-face {
+  font-family: "warriot";
+  src: url('../public/fonts/Warriot-lgR3y.otf');
+}
+@font-face {
+  font-family: "mochy";
+  src: url('../public/fonts/MochiyPopPOne-Regular.ttf');
+}
+@font-face {
+  font-family: "mplus";
+  src: url('../public/fonts/MPLUSRounded1c-Regular.ttf');
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --foreground-rgb: 255, 255, 255;
-    --background-start-rgb: 0, 0, 0;
-    --background-end-rgb: 0, 0, 0;
-  }
-}
-
-body {
-  color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
-}
-
-@layer utilities {
-  .text-balance {
-    text-wrap: balance;
-  }
-}
