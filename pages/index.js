@@ -2,6 +2,7 @@ import Head from "next/head";
 import { BsFillMoonStarsFill } from 'react-icons/bs';
 import { AiFillLinkedin, AiFillGithub } from 'react-icons/ai';
 import { FaGripLinesVertical } from "react-icons/fa6";
+import { TbLanguageHiragana } from "react-icons/tb";
 import Image from 'next/image';
 import my from '../public/my.jpg';
 import { useState, useRef } from 'react';
@@ -119,12 +120,12 @@ export default function Home() {
               />
             </li>
 
-            {/* <li>
-              <TbLanguageHiragana
+            <li>
+              <a href="https://my-portfolio-eta-orpin-11.vercel.app/" target="_blank"><TbLanguageHiragana
                 className=" cursor-pointer text-lg md:text-xl ml-1 md:ml-2 lg:ml-4
             text-blue-900 hover:text-sky-500 dark:text-white dark:hover:text-neutral-300"
-              />
-            </li> */}
+              /></a>
+            </li>
 
             <li>
               <button
