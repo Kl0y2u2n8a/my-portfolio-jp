@@ -13,7 +13,7 @@ function MyProject(props, projectRef) {
             <h2 className="text-center text-5xl md:text-6xl font-newWalt mb-5 dark:text-white">Projects</h2>
             <div className="flex md:grid md:grid-cols-[1000px_auto] justify-center md:min-h-screen">
 
-                <div ref={contentRef} className="md:flex h-auto md:w-9/12 pb-5 px-10 md:px-0 mx-auto gap-5 overflow-x-scroll snap-x snap-mandatory no-scrollbar ">
+                <div ref={contentRef} className="md:flex h-auto md:w-9/12 pb-5 px-10 md:px-0 mx-auto gap-5 md:gap-10 overflow-x-scroll snap-x snap-mandatory no-scrollbar ">
                     <div className="border-t my-10 md:ml-10 lg:ml-60 border-gray-200 text-center min-w-fit md:h-auto shadow-lg p-10 rounded-xl md:mx-auto md:my-auto snap-center snap-always dark:border-white dark:shadow-gray-500 hover:shadow-neutral-200 dark:hover:shadow-gray-400">
 
                         <h3 className="text-lg font-mochy text-slate-600 md:text-xl lg:text-2xl dark:text-neutral-300">Finance logs</h3>
@@ -123,8 +123,8 @@ function MyProject(props, projectRef) {
                     </div>
                     <p className=" invisible md:visible m-auto"><FaAnglesRight/></p>
 
-                    <p className=" invisible md:visible m-auto md:ml-10 lg:ml-60 "><FaAnglesLeft/></p>
-                    <div className="border-t my-10 lg:mr-60 border-gray-200 text-center min-w-fit md:h-auto shadow-lg p-10 rounded-xl md:mx-auto md:my-auto snap-center snap-always dark:border-white dark:shadow-gray-500 hover:shadow-neutral-200 dark:hover:shadow-gray-400">
+                    <p className=" invisible md:visible m-auto md:ml-10 lg:ml-0"><FaAnglesLeft/></p>
+                    <div className="border-t my-10 md:mr-10 border-gray-200 text-center min-w-fit md:h-auto shadow-lg p-10 rounded-xl mx-auto md:my-auto snap-center snap-always dark:border-white dark:shadow-gray-500 hover:shadow-neutral-200 dark:hover:shadow-gray-400">
 
                         <h3 className="text-2xl font-salma text-slate-600 md:text-xl lg:text-2xl dark:text-neutral-200">Guess Password Game</h3>
                         <p className="md:max-w-lg py-2 font-rony9 bg-gradient-to-r from-fuchsia-500 dark:from-sky-400 via-rose-400 dark:via-indigo-100 to-red-500 dark:to-red-400  bg-clip-text text-transparent">
