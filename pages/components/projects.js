@@ -23,8 +23,6 @@ function MyProject(props, projectRef) {
                             自分で自主学習のため、作成しました。
                             上のフォームを入力すると下のボックスにユーザーさんの入金か振込の内容を表示します。
                             </p>
-                        <p className="md:max-w-lg py-2 font-rony9 bg-gradient-to-r from-fuchsia-500 dark:from-sky-400 via-rose-400 dark:via-indigo-100 to-red-500 dark:to-red-400  bg-clip-text text-transparent">* 未完成、作成中 *</p>
-
                         <h4 className="py-2 font-mochy text-slate-600 dark:text-neutral-200 text-base md:text-lg lg:text-xl ">ツールと言語</h4>
                         <p className="text-sm bg-gradient-to-r from-pink-500 via-rose-500 to-orange-500 bg-clip-text text-transparent py-1 font-rony9">HTML/CSS, Typescript, React</p>
                         <p className="text-sm bg-gradient-to-r from-pink-500 via-rose-500 to-orange-500 bg-clip-text text-transparent py-1 font-rony9">Visual Studio Code</p>
